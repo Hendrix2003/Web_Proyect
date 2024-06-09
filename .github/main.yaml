@@ -23,6 +23,6 @@ jobs:
 
       - name: Deploy to Surge
         env:
-          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
-          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+          SURGE_LOGIN: ${{SURGE_LOGIN}}
+          SURGE_TOKEN: ${{SURGE_TOKEN}}
         run: surge --project ./ --domain Hendrix2003.surge.sh
