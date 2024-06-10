@@ -21,8 +21,14 @@ jobs:
       - name: Install Surge
         run: npm install --global surge
 
+      - name: List files in the current directory
+        run: ls -la
+
+      - name: List files in Web_Proyect directory
+        run: ls -la ./Web_Proyect
+
       - name: Deploy to Surge
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-        run: surge --project ./Web_Proyect --domain Hendrix20032701-new-domain.surge.sh
+        run: surge --project ./project --domain Hendrix20032701-new-domain.surge.sh
