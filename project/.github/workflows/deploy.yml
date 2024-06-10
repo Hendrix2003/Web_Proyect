@@ -24,8 +24,8 @@ jobs:
       - name: List files in the current directory
         run: ls -la
 
-      - name: List files in Web_Proyect directory
-        run: ls -la ./Web_Proyect
+      - name: List files in project directory
+        run: ls -la ./project || echo "Directory not found"
 
       - name: Deploy to Surge
         env:
