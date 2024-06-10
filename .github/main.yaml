@@ -1,19 +1,28 @@
-name: Publicar Pagina a Surge.sh
+name: Deploy to Surge
+
 on:
- push:
-   branches:
-     - main
+  push:
+    branches:
+      - main
+
 jobs:
- deploy:
-   runs-on: ubuntu-latest
-   steps:
-     - name: Clona el repositorio
-       uses: actions/checkout@v3
-     - name: configura nodejs
-       uses: actions/setup-node@v3
-       with:
-         node-version: "20"
-     - name: Instala Surge
-       run: npm install --global surge
-     - name: Publicar pagina
-       run: surge --project ./ --domain ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_API_KEY }}
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install Surge
+        run: npm install --global surge
+
+      - name: Deploy to Surge
+        env:
+          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+        run: surge --project ./ --domain Hendrix20032701-new-domain.surge.sh
