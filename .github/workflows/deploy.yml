@@ -31,4 +31,4 @@ jobs:
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-        run: surge --project ./Web_Proyect --domain Hendrix20032701-new-domain.surge.sh
+        run: surge --project ./WEB_PROYECT --domain Hendrix20032701-new-domain.surge.sh
